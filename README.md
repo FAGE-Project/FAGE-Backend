@@ -20,7 +20,7 @@ Projeto onde será desenvolvida a ideia trabalhada no **Projeto Integrador I**
 
 ## 🔎Tecnologias
 
-# BackEnd
+# Backend
 
 <img  src="https://d1.awsstatic.com/logos/partners/MariaDB_Logo.d8a208f0a889a8f0f0551b8391a065ea79c54f3a.png" width="150px">
 

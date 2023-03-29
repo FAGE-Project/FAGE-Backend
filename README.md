@@ -1,6 +1,6 @@
 # 📝Fage
 
-Software Para agendamento rápido e fácil de serviços
+Software Para agendamento rápido e fácil de serviços.
 
 
 ## 📃Descrição📃

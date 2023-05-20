@@ -14,7 +14,7 @@ public class RedeSocialEmpresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column
+    @Column(nullable = false)
     private String url;
 
     @ManyToOne

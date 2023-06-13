@@ -23,7 +23,8 @@ public class Endereco {
     private String bairro;
     @Column
     private String complemento;
-    @Column
+    @OneToOne
+    @JoinColumn(name = "cidade_id", nullable = false)
     private Cidade cidade;
     @Column(nullable = false)
     private String CEP;

@@ -23,8 +23,6 @@ public class Endereco {
     private String bairro;
     @Column
     private String complemento;
-    @Column
-    private Cidade cidade;
     @Column(nullable = false)
     private String CEP;
     @Column(nullable = false)

@@ -1,5 +1,6 @@
 package com.example.fage.service;
 
+import com.example.fage.dto.LoginDto;
 import com.example.fage.dto.PessoaDto;
 import com.example.fage.model.Pessoa;
 import com.example.fage.repository.PessoaRepository;
@@ -24,17 +25,16 @@ public class PessoaService {
         pessoaRepository.save(pessoa);
     }
 
-    public PessoaDto autenticar(PessoaDto pessoaDto) {
+    public LoginDto autenticar(LoginDto loginDto) {
 
         try {
-            Optional<Pessoa> pessoa = pessoaRepository.findByEmailAndSenha(pessoaDto.getEmail(), pessoaDto.getSenha());
-
+            Optional<Pessoa> pessoa = pessoaRepository.findByEmailAndSenha(loginDto.getDocumento(), loginDto.getSenha());
 
             if (pessoa.isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado");
             }
 
-            return pessoaDto;
+            return loginDto;
         } catch (ResponseStatusException e) {
             throw new ResponseStatusException(e.getStatusCode(), e.getReason());
         }

@@ -1,7 +1,7 @@
 package com.example.fage.controller;
 
+import com.example.fage.dto.LoginDto;
 import com.example.fage.dto.PessoaDto;
-import com.example.fage.model.Pessoa;
 import com.example.fage.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,8 +21,8 @@ public class PessoaController {
     }
 
     @PostMapping("/auth")
-    public ResponseEntity<PessoaDto> autenticar(@RequestBody PessoaDto pessoaDto) {
-        pessoaService.autenticar(pessoaDto);
+    public ResponseEntity<LoginDto> autenticar(@RequestBody LoginDto loginDto) {
+        pessoaService.autenticar(loginDto);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

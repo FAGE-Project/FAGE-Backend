@@ -1,0 +1,80 @@
+Para validar um CPF utilizando anotações no Spring, você pode seguir os seguintes passos:
+
+Adicione a dependência necessária ao seu arquivo pom.xml (ou build.gradle, dependendo do seu sistema de construção):
+
+xml
+Copy code
+<dependency>
+    <groupId>org.hibernate.validator</groupId>
+    <artifactId>hibernate-validator</artifactId>
+</dependency>
+Crie uma classe de validação personalizada para o CPF. Essa classe será anotada com @Constraint e implementará a interface ConstraintValidator. Aqui está um exemplo básico de como seria essa classe:
+
+java
+Copy code
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import java.lang.annotation.*;
+
+@Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = CpfValidator.class)
+@Documented
+public @interface Cpf {
+    String message() default "CPF inválido";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
+}
+Em seguida, crie a classe CpfValidator que implementa a interface ConstraintValidator e contém a lógica de validação do CPF. Aqui está um exemplo básico de como seria essa classe:
+
+java
+Copy code
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+public class CpfValidator implements ConstraintValidator<Cpf, String> {
+    @Override
+    public void initialize(Cpf constraintAnnotation) {
+    }
+
+    @Override
+    public boolean isValid(String cpf, ConstraintValidatorContext context) {
+        // Implemente a lógica de validação do CPF aqui
+        // Retorne true se o CPF for válido e false caso contrário
+    }
+}
+Agora você pode usar a anotação @Cpf para validar o CPF em uma classe de modelo, por exemplo, em um DTO ou entidade. Aqui está um exemplo de como você pode usar a anotação:
+
+java
+Copy code
+import javax.validation.constraints.NotNull;
+
+public class UsuarioDTO {
+    @NotNull
+    private String nome;
+
+    @Cpf
+    private String cpf;
+
+    // Getters e setters
+}
+Para habilitar a validação no seu serviço ou controlador Spring, você pode usar a anotação @Valid no parâmetro do método que recebe o objeto a ser validado. Aqui está um exemplo:
+
+java
+Copy code
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+
+@RestController
+public class UsuarioController {
+    @PostMapping("/usuarios")
+    public void criarUsuario(@RequestBody @Valid UsuarioDTO usuarioDTO) {
+        // O objeto usuarioDTO será validado automaticamente
+        // Se o CPF for inválido, uma exceção será lançada
+        // Caso contrário, o método continuará normalmente
+    }
+}
+Com essas etapas, o Spring irá validar automaticamente o CPF fornecido com base nas anotações definidas e lançará uma exceção caso o CPF seja inválido.

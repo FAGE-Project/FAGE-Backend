@@ -1,5 +1,7 @@
 package com.example.fage.model;
 
+import org.springframework.validation.annotation.Validated;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,7 @@ public class Pessoa {
     @Column(nullable = false)
     private String nome;
     @Column(nullable = false)
+    
     private String documento;
     @Column(nullable = false)
     private String email;

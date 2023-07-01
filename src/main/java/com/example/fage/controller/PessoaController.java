@@ -16,8 +16,9 @@ public class PessoaController {
     PessoaService pessoaService;
 
     @PostMapping
-    public void cadastrar(@RequestBody PessoaDto pessoaDto) {
+    public ResponseEntity<PessoaDto> cadastrar(@RequestBody PessoaDto pessoaDto) {
         pessoaService.cadastrar(pessoaDto);
+        return new ResponseEntity(pessoaDto ,HttpStatus.CREATED);
     }
 
     @PostMapping("/auth")

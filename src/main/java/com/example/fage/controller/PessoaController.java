@@ -2,7 +2,11 @@ package com.example.fage.controller;
 
 import com.example.fage.dto.LoginDto;
 import com.example.fage.dto.PessoaDto;
+import com.example.fage.model.Pessoa;
 import com.example.fage.service.PessoaService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,4 +30,11 @@ public class PessoaController {
         pessoaService.autenticar(loginDto);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    // @GetMapping("/pessoa")
+    // public ResponseEntity<Pessoa> listar(){
+    //     List<Pessoa> lista = pessoaService.listarTodos();
+    //     return (ResponseEntity<Pessoa>) lista;
+
+    // }
 }

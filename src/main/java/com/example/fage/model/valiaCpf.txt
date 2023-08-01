@@ -8,6 +8,8 @@ Copy code
     <groupId>org.hibernate.validator</groupId>
     <artifactId>hibernate-validator</artifactId>
 </dependency>
+
+
 Crie uma classe de validação personalizada para o CPF. Essa classe será anotada com @Constraint e implementará a interface ConstraintValidator. Aqui está um exemplo básico de como seria essa classe:
 
 java

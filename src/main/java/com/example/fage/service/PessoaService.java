@@ -1,12 +1,12 @@
 package com.example.fage.service;
 
-import com.example.fage.dto.LoginDto;
 import com.example.fage.dto.PessoaDto;
-import com.example.fage.model.Pessoa;
+import com.example.fage.entity.Pessoa;
 import com.example.fage.repository.PessoaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,26 +18,16 @@ public class PessoaService {
 
     @Autowired
     PessoaRepository pessoaRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     public void cadastrar(PessoaDto pessoaDto) {
         Pessoa pessoa = new Pessoa();
         BeanUtils.copyProperties(pessoaDto, pessoa);
+
+        pessoa.setPassword(passwordEncoder.encode(pessoaDto.getPassword()));
+
         pessoaRepository.save(pessoa);
-    }
-
-    public LoginDto autenticar(LoginDto loginDto) {
-
-        try {
-            Optional<Pessoa> pessoa = pessoaRepository.findByEmailAndSenha(loginDto.getDocumento(), loginDto.getSenha());
-
-            if (pessoa.isEmpty()) {
-                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado");
-            }
-
-            return loginDto;
-        } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(e.getStatusCode(), e.getReason());
-        }
     }
 
     public List<Pessoa> listarTodos() {

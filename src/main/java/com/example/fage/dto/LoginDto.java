@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class LoginDto {
     private String documento;
-    private String senha;
+    private String password;
 }

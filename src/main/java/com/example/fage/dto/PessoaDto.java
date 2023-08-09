@@ -11,5 +11,5 @@ public class PessoaDto {
     private String nome;
     private String documento;
     private String email;
-    private String senha;
+    private String password;
 }

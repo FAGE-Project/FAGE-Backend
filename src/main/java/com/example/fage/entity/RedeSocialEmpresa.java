@@ -1,5 +1,4 @@
-package com.example.fage.model.Endereco;
-
+package com.example.fage.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,14 +9,18 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cidade {
+public class RedeSocialEmpresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = false)
-    private String nome;
+    private String url;
+
     @ManyToOne
-    @JoinColumn(name = "estado_id", nullable = false)
-    private Estado estado;
+    @JoinColumn(name = "rede_social_id", nullable = false)
+    private RedeSocial redeSocial;
+    @ManyToOne
+    @JoinColumn(name = "empresa_id", nullable = false)
+    private Empresa empresa;
 }

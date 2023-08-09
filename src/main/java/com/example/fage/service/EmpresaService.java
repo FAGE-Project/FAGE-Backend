@@ -1,7 +1,7 @@
 package com.example.fage.service;
 
 import com.example.fage.dto.EmpresaDto;
-import com.example.fage.model.Empresa;
+import com.example.fage.entity.Empresa;
 import com.example.fage.repository.EmpresaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

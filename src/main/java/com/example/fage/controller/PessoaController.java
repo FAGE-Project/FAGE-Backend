@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/pessoa")
+@RequestMapping("/cadastro")
 public class PessoaController {
 
     @Autowired
@@ -19,11 +19,5 @@ public class PessoaController {
     public ResponseEntity<PessoaDto> cadastrar(@RequestBody PessoaDto pessoaDto) {
         pessoaService.cadastrar(pessoaDto);
         return new ResponseEntity(pessoaDto ,HttpStatus.CREATED);
-    }
-
-    @PostMapping("/auth")
-    public ResponseEntity<LoginDto> autenticar(@RequestBody LoginDto loginDto) {
-        pessoaService.autenticar(loginDto);
-        return new ResponseEntity(HttpStatus.OK);
     }
 }

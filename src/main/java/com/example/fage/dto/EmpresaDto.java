@@ -1,6 +1,6 @@
 package com.example.fage.dto;
 
-import com.example.fage.model.Pessoa;
+import com.example.fage.entity.Pessoa;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

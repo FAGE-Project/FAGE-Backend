@@ -1,4 +1,5 @@
-package com.example.fage.model;
+package com.example.fage.entity.Endereco;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,13 +10,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Contato {
+public class Estado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @ManyToOne
-    @JoinColumn(name = "pessoa_id", nullable = false)
-    private Pessoa pessoa;
+    @Column(nullable = false)
+    private String nome;
+    @Column(nullable = false)
+    private String sigla;
 }

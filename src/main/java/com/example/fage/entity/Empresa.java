@@ -14,8 +14,6 @@ public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column
+    @Column(nullable = false)
     private String nome;
-
 }

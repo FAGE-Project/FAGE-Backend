@@ -21,13 +21,27 @@ public class PessoaService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    public void cadastrar(PessoaDto pessoaDto) {
+    public String cadastrar(PessoaDto pessoaDto) {
         Pessoa pessoa = new Pessoa();
         BeanUtils.copyProperties(pessoaDto, pessoa);
 
         pessoa.setPassword(passwordEncoder.encode(pessoaDto.getPassword()));
 
         pessoaRepository.save(pessoa);
+        List<Pessoa> verificaEmailRepetido = buscarPorEmail(pessoaDto.getEmail());
+        List<Pessoa> verificaDocumentoRepetido = buscarPorDocumento(pessoaDto.getDocumento());
+        if(verificaEmailRepetido == null){
+            if(verificaDocumentoRepetido == null){
+                pessoaRepository.save(pessoa);
+                return "Sucesso no cadastro";
+            }
+        }else {
+             return "Email já cadastrado";
+        }
+        return null;
+
+
+
     }
 
     public List<Pessoa> listarTodos() {
@@ -59,6 +73,38 @@ public class PessoaService {
 
             if (listaPessoa.isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nenhuma Estado foi encontrada");
+            }
+
+            return listaPessoa;
+
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(e.getStatusCode(), e.getReason());
+        }
+    }
+
+    public List<Pessoa> buscarPorEmail(String email) {
+
+        try {
+            List<Pessoa> listaPessoa = pessoaRepository.findByEmailContainingIgnoreCase(email);
+
+            if (listaPessoa.isEmpty()) {
+                return null;
+            }
+
+            return listaPessoa;
+
+        } catch (ResponseStatusException e) {
+            throw new ResponseStatusException(e.getStatusCode(), e.getReason());
+        }
+    }
+
+    public List<Pessoa> buscarPorDocumento(String documento) {
+
+        try {
+            List<Pessoa> listaPessoa = pessoaRepository.findByEmailContainingIgnoreCase(documento);
+
+            if (listaPessoa.isEmpty()) {
+                return null;
             }
 
             return listaPessoa;

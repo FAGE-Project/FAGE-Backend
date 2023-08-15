@@ -1,11 +1,7 @@
 package com.example.fage.controller;
 
-import com.example.fage.dto.LoginDto;
 import com.example.fage.dto.PessoaDto;
-import com.example.fage.model.Pessoa;
 import com.example.fage.service.PessoaService;
-
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

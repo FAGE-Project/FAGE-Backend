@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/pessoa")
+@RequestMapping("/cadastro")
 public class PessoaController {
 
     @Autowired
@@ -24,17 +24,4 @@ public class PessoaController {
         pessoaService.cadastrar(pessoaDto);
         return new ResponseEntity(pessoaDto ,HttpStatus.CREATED);
     }
-
-    @PostMapping("/auth")
-    public ResponseEntity<LoginDto> autenticar(@RequestBody LoginDto loginDto) {
-        pessoaService.autenticar(loginDto);
-        return new ResponseEntity(HttpStatus.OK);
-    }
-
-    // @GetMapping("/pessoa")
-    // public ResponseEntity<Pessoa> listar(){
-    //     List<Pessoa> lista = pessoaService.listarTodos();
-    //     return (ResponseEntity<Pessoa>) lista;
-
-    // }
 }

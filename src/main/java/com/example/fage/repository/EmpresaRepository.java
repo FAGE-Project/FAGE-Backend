@@ -1,6 +1,6 @@
 package com.example.fage.repository;
 
-import com.example.fage.model.Empresa;
+import com.example.fage.entity.Empresa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

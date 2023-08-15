@@ -1,4 +1,4 @@
-package com.example.fage.model;
+package com.example.fage.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RedeSocial {
+public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

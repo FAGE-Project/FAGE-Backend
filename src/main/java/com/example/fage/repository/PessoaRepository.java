@@ -1,9 +1,10 @@
 package com.example.fage.repository;
 
-import com.example.fage.model.Pessoa;
+import com.example.fage.entity.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
@@ -14,5 +15,9 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
     List<Pessoa> findByDocumentoContainingIgnoreCase(String documento);
 
-    Optional<Pessoa> findByEmailAndSenha(String email, String senha);
+    Optional<Pessoa> findByEmailAndPassword(String email, String password);
+
+    Optional<Pessoa> findByDocumentoAndPassword(String documento, String password);
+
+    Optional<Pessoa> findByDocumento(String documento);
 }

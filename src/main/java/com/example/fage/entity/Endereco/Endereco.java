@@ -1,4 +1,4 @@
-package com.example.fage.model.Endereco;
+package com.example.fage.entity.Endereco;
 
 
 import jakarta.persistence.*;

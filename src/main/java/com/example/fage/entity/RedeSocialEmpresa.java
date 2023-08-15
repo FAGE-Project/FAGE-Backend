@@ -1,4 +1,4 @@
-package com.example.fage.model;
+package com.example.fage.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

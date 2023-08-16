@@ -11,6 +11,4 @@ import lombok.NoArgsConstructor;
 @Data
 public class EmpresaDto {
     private String nome;
-    private String documento;
-    private Pessoa pessoa;
 }

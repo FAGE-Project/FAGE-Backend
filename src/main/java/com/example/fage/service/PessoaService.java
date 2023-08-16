@@ -22,6 +22,7 @@ public class PessoaService {
     PasswordEncoder passwordEncoder;
 
     public String cadastrar(PessoaDto pessoaDto) {
+
         Pessoa pessoa = new Pessoa();
         BeanUtils.copyProperties(pessoaDto, pessoa);
 

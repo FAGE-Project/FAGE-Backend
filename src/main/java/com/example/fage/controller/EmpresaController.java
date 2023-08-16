@@ -16,9 +16,13 @@ public class EmpresaController {
     EmpresaService empresaService;
 
     @PostMapping
-    public ResponseEntity<EmpresaDto> cadastrar(@RequestBody EmpresaDto empresaDto) {
-        empresaService.cadastrar(empresaDto);
-        return new ResponseEntity(empresaDto ,HttpStatus.CREATED);
+    public ResponseEntity cadastrar(@RequestBody EmpresaDto empresaDto) {
+        try {
+            empresaService.cadastrar(empresaDto);
+            return new ResponseEntity(empresaDto ,HttpStatus.CREATED);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
     

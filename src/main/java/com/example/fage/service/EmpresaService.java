@@ -18,10 +18,15 @@ public class EmpresaService {
     @Autowired
     EmpresaRepository empresaRepository;
 
-    public void cadastrar(EmpresaDto empresaDto) {
+    public Empresa cadastrar(EmpresaDto empresaDto) throws Exception {
         Empresa empresa = new Empresa();
+        if(empresaDto.getNome().isEmpty())
+            throw new Exception("Nome inválido");
+
         BeanUtils.copyProperties(empresaDto, empresa);
         empresaRepository.save(empresa);
+
+        return empresa;
     }
 
 

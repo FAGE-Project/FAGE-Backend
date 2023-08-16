@@ -23,6 +23,7 @@ public class Configurations {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(requests -> requests
+                        .requestMatchers("/empresa").permitAll()
                         .requestMatchers("/cadastro").permitAll()
                         .requestMatchers("/login").permitAll()
                         .anyRequest().authenticated());

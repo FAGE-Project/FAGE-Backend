@@ -44,9 +44,6 @@ public class EmpresaController {
                     .body(e.getMessage());
         }
     }
-    
-    
-    // @GetMapping("/nome")
-    // public ResponseEntity<?>  buscaPorNome
+
 
 }

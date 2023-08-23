@@ -27,7 +27,7 @@ public class LoginController {
     AuthenticationManager authenticationManager;
 
     @PostMapping()
-    public ResponseEntity login(@RequestBody LoginDto loginDto){
+    public ResponseEntity<?> login(@RequestBody LoginDto loginDto){
 
         try{
             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =

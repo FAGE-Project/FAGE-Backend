@@ -1,3 +1,8 @@
+-- insere uma pessoa para testes
+INSERT INTO `pessoa` (`id`, `documento`, `email`, `nome`, `password`) VALUES
+                                                     (1, '958.200.690-05', 'tilapia@gmail.com', 'Tilapia da Silva', '$2a$12$R9tui8cxiIzxqZtiz9ieh.PcoqpiPxpVL4bhM65iur5q2Fnd9dEHC');
+
+-- insere todos os estados do Brasil
 INSERT INTO `estado` (`id`, `nome`, `sigla`) VALUES
                                                      (1, 'Acre', 'AC'),
                                                      (2, 'Alagoas', 'AL'),
@@ -27,7 +32,7 @@ INSERT INTO `estado` (`id`, `nome`, `sigla`) VALUES
                                                      (26, 'São Paulo', 'SP'),
                                                      (27, 'Tocantins', 'TO');
 
-
+-- inicia inserção de todas as cidades do Brasil
 INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
                                                   (1, 'Afonso Cláudio', 8),
                                                   (2, 'Água Doce do Norte', 8),
@@ -2096,6 +2101,8 @@ INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
                                                   (2065, 'Montes Claros', 11),
                                                   (2066, 'Montezuma', 11),
                                                   (2067, 'Morada Nova de Minas', 11);
+
+-- continua inserção de todas as cidades do Brasil
 INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
                                                   (2068, 'Morro da Garça', 11),
                                                   (2069, 'Morro do Pilar', 11),
@@ -4006,6 +4013,8 @@ INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
                                                   (3974, 'Cruz Alta', 23),
                                                   (3975, 'Cruzaltense', 23),
                                                   (3976, 'Cruzeiro do Sul', 23);
+
+-- finaliza inserção de todas as cidades do Brasil
 INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
                                                   (3977, 'David Canabarro', 23),
                                                   (3978, 'Derrubadas', 23),

@@ -1,5 +1,7 @@
 package com.example.fage.entity;
 
+import org.hibernate.validator.constraints.br.CNPJ;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,4 +18,7 @@ public class Empresa {
     private long id;
     @Column(nullable = false)
     private String nome;
+
+    @CNPJ
+    private String documento;
 }

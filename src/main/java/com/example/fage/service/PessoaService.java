@@ -28,18 +28,18 @@ public class PessoaService {
 
     public PessoaDto cadastrar(PessoaDto pessoaDto) throws Exception{
 
-        BeanUtils.copyProperties(pessoaDto, pessoa);
-
-        criptografarSenha(pessoaDto.getPassword(), pessoa);
+        criptografarSenha(pessoaDto.getPassword(), pessoaDto);
 
         validarPessoa(pessoaDto);
+
+        BeanUtils.copyProperties(pessoaDto, pessoa);
 
         pessoaRepository.save(pessoa);
 
         return pessoaDto;
     }
 
-    private void criptografarSenha(String password, Pessoa pessoa) throws Exception{
+    private void criptografarSenha(String password, PessoaDto pessoa) throws Exception{
         try{
             pessoa.setPassword(passwordEncoder.encode(password));
         }catch (Exception e){
@@ -49,14 +49,10 @@ public class PessoaService {
 
     private void validarPessoa(PessoaDto pessoaDto) throws Exception{
 
-        List<Pessoa> verificaDocumentoRepetido = buscarPorDocumento(pessoaDto.getDocumento());
-
-        if(!verificaDocumentoRepetido.isEmpty())
+        if(buscarPorDocumento(pessoaDto.getDocumento()))
             throw new DocumentAlreadySignedException("Documento já cadastrado");
 
-        List<Pessoa> verificaEmailRepetido = buscarPorEmail(pessoaDto.getEmail());
-
-        if(!verificaEmailRepetido.isEmpty())
+        if(buscarPorEmail(pessoaDto.getEmail()))
             throw new EmailAlreadySignedException("Email já cadastrado");
     }
 
@@ -98,36 +94,16 @@ public class PessoaService {
         }
     }
 
-    public List<Pessoa> buscarPorEmail(String email) {
+    public boolean buscarPorEmail(String email) {
 
-        try {
-            List<Pessoa> listaPessoa = pessoaRepository.findByEmailContainingIgnoreCase(email);
-
-            if (listaPessoa.isEmpty()) {
-                return null;
-            }
-
-            return listaPessoa;
-
-        } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(e.getStatusCode(), e.getReason());
-        }
+        Optional<Pessoa> pessoa = pessoaRepository.findByEmailContainingIgnoreCase(email);
+        return pessoa.isEmpty();
     }
 
-    public List<Pessoa> buscarPorDocumento(String documento) {
+    public boolean buscarPorDocumento(String documento) {
 
-        try {
-            List<Pessoa> listaPessoa = pessoaRepository.findByEmailContainingIgnoreCase(documento);
-
-            if (listaPessoa.isEmpty()) {
-                return null;
-            }
-
-            return listaPessoa;
-
-        } catch (ResponseStatusException e) {
-            throw new ResponseStatusException(e.getStatusCode(), e.getReason());
-        }
+        Optional<Pessoa> pessoa = pessoaRepository.findByDocumentoContainingIgnoreCase(documento);
+        return pessoa.isPresent();
     }
 
     public void atualizar(PessoaDto pessoaDto) {
@@ -150,9 +126,9 @@ public class PessoaService {
     private void validarAtualizacaoPessoa(PessoaDto pessoaDto) throws ResponseStatusException {
         try {
 
-            if (pessoaDto == null) {
+            if (pessoaDto == null)
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Informe um estado para atualizar");
-            }
+
         } catch (ResponseStatusException e) {
             throw new ResponseStatusException(e.getStatusCode(), e.getReason());
         }

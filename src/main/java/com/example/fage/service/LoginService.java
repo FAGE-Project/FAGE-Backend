@@ -20,9 +20,10 @@ public class LoginService implements UserDetailsService {
     public String verifyLogin(LoginDto loginDto) {
         try {
             Optional<Pessoa> person = pessoaRepository.findByDocumentoAndPassword(loginDto.getDocumento(), loginDto.getPassword());
-            if(person.isEmpty()) {
+
+            if(person.isEmpty())
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado");
-            }
+
             return "Aqui será retornado um Token";
         } catch (ResponseStatusException exception){
             throw new ResponseStatusException(exception.getStatusCode(), exception.getReason());

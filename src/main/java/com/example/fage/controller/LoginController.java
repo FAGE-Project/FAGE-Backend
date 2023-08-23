@@ -39,10 +39,10 @@ public class LoginController {
 
             var pessoa = (Pessoa) authenticate.getPrincipal();
 
-            if(pessoa != null){
+            if(pessoa != null)
                 return ResponseEntity
                         .ok(tokenService.generateToken(pessoa));
-            }
+
 
         } catch (Exception e){
             return ResponseEntity

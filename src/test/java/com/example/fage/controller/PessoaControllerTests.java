@@ -56,7 +56,7 @@ public class PessoaControllerTests {
         pessoaDto.setDocumento("059.476.540-40");
         pessoaDto.setEmail("helonbetensr51@gmail.com");
 
-        when(pessoaService.cadastrar(any(PessoaDto.class))).thenReturn(pessoaDto.toString());
+        when(pessoaService.cadastrar(any(PessoaDto.class))).thenReturn(pessoaDto);
 
         mockMvc.perform(post("/cadastro")
                 .content(objectMapper.writeValueAsString(pessoaDto))
@@ -69,7 +69,7 @@ public class PessoaControllerTests {
 
         PessoaDto pessoaDto = new PessoaDto();
 
-        when(pessoaService.cadastrar(any(PessoaDto.class))).thenReturn(pessoaDto.toString());
+        when(pessoaService.cadastrar(any(PessoaDto.class))).thenReturn(pessoaDto);
 
         mockMvc.perform(post("/cadastro")
                         .content(objectMapper.writeValueAsString(null))

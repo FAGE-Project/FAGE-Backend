@@ -1,5 +1,8 @@
 package com.example.fage.service;
 
+import com.example.fage.Exceptions.DocumentAlreadySignedException;
+import com.example.fage.Exceptions.EmailAlreadySignedException;
+import com.example.fage.Exceptions.PasswordEncondingException;
 import com.example.fage.dto.PessoaDto;
 import com.example.fage.entity.Pessoa;
 import com.example.fage.repository.PessoaRepository;
@@ -21,28 +24,40 @@ public class PessoaService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    public String cadastrar(PessoaDto pessoaDto) {
+    Pessoa pessoa = new Pessoa();
 
-        Pessoa pessoa = new Pessoa();
+    public PessoaDto cadastrar(PessoaDto pessoaDto) throws Exception{
+
         BeanUtils.copyProperties(pessoaDto, pessoa);
 
-        pessoa.setPassword(passwordEncoder.encode(pessoaDto.getPassword()));
+        criptografarSenha(pessoaDto.getPassword(), pessoa);
+
+        validarPessoa(pessoaDto);
 
         pessoaRepository.save(pessoa);
-        List<Pessoa> verificaEmailRepetido = buscarPorEmail(pessoaDto.getEmail());
-        List<Pessoa> verificaDocumentoRepetido = buscarPorDocumento(pessoaDto.getDocumento());
-        if(verificaEmailRepetido == null){
-            if(verificaDocumentoRepetido == null){
-                pessoaRepository.save(pessoa);
-                return "Sucesso no cadastro";
-            }
-        }else {
-             return "Email já cadastrado";
+
+        return pessoaDto;
+    }
+
+    private void criptografarSenha(String password, Pessoa pessoa) throws Exception{
+        try{
+            pessoa.setPassword(passwordEncoder.encode(password));
+        }catch (Exception e){
+            throw new PasswordEncondingException("Erro ao criptografar senha");
         }
-        return null;
+    }
 
+    private void validarPessoa(PessoaDto pessoaDto) throws Exception{
 
+        List<Pessoa> verificaDocumentoRepetido = buscarPorDocumento(pessoaDto.getDocumento());
 
+        if(!verificaDocumentoRepetido.isEmpty())
+            throw new DocumentAlreadySignedException("Documento já cadastrado");
+
+        List<Pessoa> verificaEmailRepetido = buscarPorEmail(pessoaDto.getEmail());
+
+        if(!verificaEmailRepetido.isEmpty())
+            throw new EmailAlreadySignedException("Email já cadastrado");
     }
 
     public List<Pessoa> listarTodos() {

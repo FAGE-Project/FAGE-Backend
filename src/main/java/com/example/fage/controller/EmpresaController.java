@@ -16,14 +16,16 @@ public class EmpresaController {
     EmpresaService empresaService;
 
     @PostMapping
-    public ResponseEntity cadastrar(@RequestBody EmpresaDto empresaDto) {
+    public ResponseEntity<?> cadastrar(@RequestBody EmpresaDto empresaDto) {
         try {
             empresaService.cadastrar(empresaDto);
-            return new ResponseEntity(empresaDto ,HttpStatus.CREATED);
+            return ResponseEntity
+                    .status(HttpStatus.CREATED)
+                    .body(empresaDto);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(e.getMessage());
         }
     }
-
-    
 }

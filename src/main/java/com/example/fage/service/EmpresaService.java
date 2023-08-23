@@ -1,5 +1,6 @@
 package com.example.fage.service;
 
+import com.example.fage.Exceptions.InvalidCompanyNameException;
 import com.example.fage.dto.EmpresaDto;
 import com.example.fage.entity.Empresa;
 import com.example.fage.repository.EmpresaRepository;
@@ -21,7 +22,7 @@ public class EmpresaService {
     public Empresa cadastrar(EmpresaDto empresaDto) throws Exception {
         Empresa empresa = new Empresa();
         if(empresaDto.getNome().isEmpty())
-            throw new Exception("Nome inválido");
+            throw new InvalidCompanyNameException("Nome da empresa inválido");
 
         BeanUtils.copyProperties(empresaDto, empresa);
         empresaRepository.save(empresa);

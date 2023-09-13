@@ -1,5 +1,6 @@
 package com.example.fage.controller;
 
+import com.example.fage.dto.EmpresaListagemDto;
 import com.example.fage.dto.LoginDto;
 import com.example.fage.entity.Empresa;
 import com.example.fage.dto.EmpresaDto;
@@ -33,15 +34,26 @@ public class EmpresaController {
         }
     }
 
-    @GetMapping
-    public  ResponseEntity<?> buscaTodos(){
+//    @GetMapping
+//    public  ResponseEntity<?> buscaTodos(){
+//        try {
+//             List<Empresa> empresas = empresaService.listarTodos();
+//            return ResponseEntity.status(HttpStatus.OK).body(empresas);
+//        } catch (Exception e) {
+//           return ResponseEntity
+//                    .status(HttpStatus.BAD_REQUEST)
+//                    .body(e.getMessage());
+//        }
+//    }
+
+    @GetMapping()
+    public ResponseEntity<?> listarEmpresas(){
         try {
-             List<Empresa> empresas = empresaService.listarTodos();
-            return ResponseEntity.status(HttpStatus.OK).body(empresas);
-        } catch (Exception e) {
-           return ResponseEntity
-                    .status(HttpStatus.BAD_REQUEST)
-                    .body(e.getMessage());
+            List<EmpresaListagemDto> empresaListagem = empresaService.listarEmpresas();
+            return ResponseEntity.status(HttpStatus.OK).body(empresaListagem);
+
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 

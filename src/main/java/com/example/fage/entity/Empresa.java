@@ -19,6 +19,14 @@ public class Empresa {
     @Column(nullable = false)
     private String nome;
 
-    @CNPJ
     private String documento;
+
+    private String descricao;
+
+    private String foto;
+
+    private int nota;
+
+    @Column(columnDefinition = "tinyint(1) default 1")
+    private boolean aberta;
 }

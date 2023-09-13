@@ -2,6 +2,7 @@ package com.example.fage.service;
 
 import com.example.fage.Exceptions.InvalidCompanyNameException;
 import com.example.fage.dto.EmpresaDto;
+import com.example.fage.dto.EmpresaListagemDto;
 import com.example.fage.entity.Empresa;
 import com.example.fage.repository.EmpresaRepository;
 import org.springframework.beans.BeanUtils;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +36,22 @@ public class EmpresaService {
 
     public List<Empresa> listarTodos() {
         return empresaRepository.findAll();
+    }
+
+    public List<EmpresaListagemDto> listarEmpresas(){
+        List<Empresa> empresaOptional = empresaRepository.findAll();
+
+        List<EmpresaListagemDto> empresasListadas = new ArrayList<>();
+
+        for (Empresa value : empresaOptional) {
+            EmpresaListagemDto empresa = new EmpresaListagemDto();
+            BeanUtils.copyProperties(value, empresa);
+            empresasListadas.add(empresa);
+        }
+
+        BeanUtils.copyProperties(empresaOptional, empresasListadas);
+
+        return empresasListadas;
     }
 
     public EmpresaDto buscarPorId(Long id) {

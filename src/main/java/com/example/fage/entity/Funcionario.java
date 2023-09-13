@@ -15,6 +15,6 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
-    private Pessoa pessoa_id;
+    @OneToOne
+    private Pessoa pessoa;
 }

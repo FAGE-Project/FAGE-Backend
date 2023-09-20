@@ -24,8 +24,10 @@ public class Configurations {
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/empresa").permitAll()
+                        .requestMatchers("/empresa/*").permitAll()
                         .requestMatchers("/cadastro").permitAll()
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/").permitAll()
                         .anyRequest().authenticated());
 
         return http.build();

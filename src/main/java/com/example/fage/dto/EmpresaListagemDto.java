@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class EmpresaListagemDto {
+
+    private long id;
     private String nome;
 
     private boolean aberta;

@@ -2,6 +2,15 @@
 INSERT INTO `pessoa` (`id`, `documento`, `email`, `nome`, `password`) VALUES
                                                      (1, '958.200.690-05', 'tilapia@gmail.com', 'Tilapia da Silva', '$2a$12$R9tui8cxiIzxqZtiz9ieh.PcoqpiPxpVL4bhM65iur5q2Fnd9dEHC');
 
+INSERT INTO `empresa` (`aberta`, `descricao`, `nome`, `nota`) VALUES
+                                                    (1, 'empresa', 'fage', 5),
+                                                    (0, 'não é uma empresa', 'google', 1),
+                                                    (1, 'é uma empresa', 'foogle', 3);
+
+
+INSERT INTO `fage`.`empresa` (`aberta`, `descricao`, `documento`, `foto`, `nome`, `nota`) VALUES ('1', 'ben 10 company', '44324343', 'https://i.pinimg.com/originals/80/8d/f0/808df0e1d0d32768a4a5fdf6b5e8f5ec.png', 'barbeiro 10', '5');
+
+
 -- insere todos os estados do Brasil
 INSERT INTO `estado` (`id`, `nome`, `sigla`) VALUES
                                                      (1, 'Acre', 'AC'),

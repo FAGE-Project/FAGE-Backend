@@ -1,7 +1,7 @@
 package com.example.fage.controller;
 
 import com.example.fage.dto.EmpresaListagemDto;
-import com.example.fage.dto.LoginDto;
+// import com.example.fage.dto.LoginDto;
 import com.example.fage.entity.Empresa;
 import com.example.fage.dto.EmpresaDto;
 import com.example.fage.service.EmpresaService;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/empresa")
+@CrossOrigin
 public class EmpresaController {
 
     @Autowired
@@ -46,7 +47,7 @@ public class EmpresaController {
 //        }
 //    }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<?> listarEmpresas(){
         try {
             List<EmpresaListagemDto> empresaListagem = empresaService.listarEmpresas();
@@ -56,6 +57,16 @@ public class EmpresaController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<?> buscaPorId(@PathVariable Long id){
+        // EmpresaService empresaService = new EmpresaService();
+        EmpresaListagemDto empresa = empresaService.buscarPorId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(empresa);
+    }
+
+
 
 
 }

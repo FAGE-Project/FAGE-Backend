@@ -1,6 +1,7 @@
 package com.example.fage.entity;
 
 import org.hibernate.validator.constraints.br.CNPJ;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

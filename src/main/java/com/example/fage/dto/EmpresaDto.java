@@ -1,6 +1,6 @@
 package com.example.fage.dto;
 
-import com.example.fage.entity.Pessoa;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class EmpresaDto {
+    
     private String nome;
 }

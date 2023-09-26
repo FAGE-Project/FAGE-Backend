@@ -13,6 +13,14 @@ public class EmpresaListagemDto {
     private long id;
     private String nome;
 
+    private String documento;
+
+    private String descricao;
+
+    private String foto;
+
+    private int nota;
+
     private boolean aberta;
 
 }

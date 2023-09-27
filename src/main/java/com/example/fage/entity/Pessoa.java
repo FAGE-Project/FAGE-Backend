@@ -25,6 +25,8 @@ public class Pessoa implements UserDetails {
     @Column(nullable = false)
     @CPF
     private String documento;
+
+    private String foto;
     @Column(nullable = false)
     private String email;
     @Column

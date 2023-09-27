@@ -20,6 +20,4 @@ public class Horario {
     private Date data;
     @Column(nullable = false)
     private boolean status;
-    @OneToOne
-    private Servico servico;
 }

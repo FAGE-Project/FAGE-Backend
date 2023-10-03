@@ -54,14 +54,14 @@ public class EmpresaService {
         return empresasListadas;
     }
 
-    public EmpresaListagemDto buscarPorId(Long id) {
+    public EmpresaDto buscarPorId(Long id) {
         try {
             Optional<Empresa> empresaOptional = empresaRepository.findById(id);
             if (empresaOptional.isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nenhuma Estado foi encontrada");
             }
 
-            EmpresaListagemDto empresa = new EmpresaListagemDto();
+            EmpresaDto empresa = new EmpresaDto();
 
             BeanUtils.copyProperties(empresaOptional.get(), empresa);
             return empresa;

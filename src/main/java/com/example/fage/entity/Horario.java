@@ -20,6 +20,8 @@ public class Horario {
     private Date data;
     @Column(nullable = false)
     private boolean status;
-    @OneToOne
+
+    @ManyToOne
+    @JoinColumn(name = "servico_id")
     private Servico servico;
 }

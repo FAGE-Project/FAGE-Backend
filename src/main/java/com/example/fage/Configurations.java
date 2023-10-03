@@ -27,6 +27,8 @@ public class Configurations {
                         .requestMatchers("/empresa/*").permitAll()
                         .requestMatchers("/cadastro").permitAll()
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/funcionario").permitAll()
+                        .requestMatchers("/funcionario/*").permitAll()
                         .requestMatchers("/").permitAll()
                         .anyRequest().authenticated());
 

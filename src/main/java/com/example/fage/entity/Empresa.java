@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -30,4 +32,7 @@ public class Empresa {
 
     @Column(columnDefinition = "tinyint(1) default 1")
     private boolean aberta;
+
+    @OneToMany(mappedBy = "empresa")
+    private List<Funcionario> funcionarios;
 }

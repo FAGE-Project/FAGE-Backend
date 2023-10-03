@@ -62,7 +62,7 @@ public class EmpresaController {
     @GetMapping("/{id}")
     public ResponseEntity<?> buscaPorId(@PathVariable Long id){
         // EmpresaService empresaService = new EmpresaService();
-        EmpresaListagemDto empresa = empresaService.buscarPorId(id);
+        EmpresaDto empresa = empresaService.buscarPorId(id);
         return ResponseEntity.status(HttpStatus.OK).body(empresa);
     }
 

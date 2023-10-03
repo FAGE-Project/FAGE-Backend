@@ -33,6 +33,6 @@ public class Empresa {
     @Column(columnDefinition = "tinyint(1) default 1")
     private boolean aberta;
 
-    @OneToMany
+    @OneToMany(mappedBy = "empresa")
     private List<Funcionario> funcionarios;
 }

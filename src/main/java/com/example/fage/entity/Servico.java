@@ -26,7 +26,6 @@ public class Servico {
     private String foto;
     @Column(nullable = false)
     private double duracao;
-    @OneToMany
+    @OneToMany(mappedBy="servico")
     private List<Horario> horarios;
-
 }

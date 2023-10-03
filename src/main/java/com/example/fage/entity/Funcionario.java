@@ -22,4 +22,9 @@ public class Funcionario {
 
     @OneToOne
     private Servico servico;
+
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
+
 }

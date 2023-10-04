@@ -1,5 +1,6 @@
 package com.example.fage.service;
 
+import com.example.fage.Exceptions.CannotBeBlankException;
 import com.example.fage.Exceptions.InvalidCompanyNameException;
 import com.example.fage.dto.EmpresaDto;
 import com.example.fage.dto.EmpresaListagemDto;
@@ -25,6 +26,8 @@ public class EmpresaService {
         Empresa empresa = new Empresa();
         if(empresaDto.getNome().isEmpty())
             throw new InvalidCompanyNameException("Nome da empresa inválido");
+
+        validarEmpresa(empresaDto);
 
         BeanUtils.copyProperties(empresaDto, empresa);
         empresaRepository.save(empresa);
@@ -113,5 +116,10 @@ public class EmpresaService {
         } catch (ResponseStatusException e) {
             throw new ResponseStatusException(e.getStatusCode(), e.getReason());
         }
+    }
+
+    private void validarEmpresa(EmpresaDto empresaDto) throws CannotBeBlankException {
+        if(empresaDto == null )
+            throw new CannotBeBlankException("O campo não pode ser Nulo ou estar em branco, insira um valor para cadastrar");
     }
 }

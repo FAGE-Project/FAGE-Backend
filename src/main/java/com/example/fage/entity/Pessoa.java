@@ -1,6 +1,8 @@
 package com.example.fage.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,17 +20,24 @@ import java.util.List;
 public class Pessoa implements UserDetails {
 
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(nullable = false)
     private String nome;
+
     @Column(nullable = false)
     @CPF
     private String documento;
 
+    @NotBlank
     private String foto;
+
     @Column(nullable = false)
     private String email;
+
+    @NotBlank
     @Column
     private String password;
     private Pessoa(String nome, String documento, String email) {

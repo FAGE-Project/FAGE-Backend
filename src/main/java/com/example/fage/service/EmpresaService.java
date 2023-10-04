@@ -4,6 +4,7 @@ import com.example.fage.Exceptions.InvalidCompanyNameException;
 import com.example.fage.dto.EmpresaDto;
 import com.example.fage.dto.EmpresaListagemDto;
 import com.example.fage.entity.Empresa;
+import com.example.fage.entity.Funcionario;
 import com.example.fage.repository.EmpresaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class EmpresaService {
@@ -71,6 +70,21 @@ public class EmpresaService {
         }
     }
 
+    public Set<Funcionario> buscarFuncionariosPorId(Long id) throws Exception{
+        Empresa empresa;
+        try{
+            empresa =  empresaRepository.findById(id).get();
+        } catch(Exception e) {
+            throw new Exception(e.getMessage());
+        }
+
+        Set<Funcionario> funcionarios = new HashSet<>();
+        if(funcionarios != null){
+            return empresa.getFuncionarios();
+        }
+        return funcionarios;
+    }
+
     public List<Empresa> buscarPorNome(String nome) {
 
         try {
@@ -114,4 +128,5 @@ public class EmpresaService {
             throw new ResponseStatusException(e.getStatusCode(), e.getReason());
         }
     }
+
 }

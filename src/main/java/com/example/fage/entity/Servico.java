@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -27,5 +28,5 @@ public class Servico {
     @Column(nullable = false)
     private double duracao;
     @OneToMany(mappedBy="servico")
-    private List<Horario> horarios;
+    private Set<Horario> horarios;
 }

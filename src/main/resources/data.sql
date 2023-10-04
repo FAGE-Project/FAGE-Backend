@@ -10,9 +10,27 @@ INSERT INTO `empresa` (`aberta`, `descricao`, `nome`, `nota`) VALUES
 
 INSERT INTO `fage`.`empresa` (`aberta`, `descricao`, `documento`, `foto`, `nome`, `nota`) VALUES ('1', 'ben 10 company', '44324343', 'https://i.pinimg.com/originals/80/8d/f0/808df0e1d0d32768a4a5fdf6b5e8f5ec.png', 'barbeiro 10', '5');
 
-INSERT INTO `fage`.`servico` (`descricao`, `duracao`, `foto`, `nome`, `preco`) VALUES ('Corte de cabelo', '15', 'https://4.bp.blogspot.com/-xUeToq0zYGg/UhaaoVmqw4I/AAAAAAAAAcA/oX2lorw7vSU/s1600/dansai+bunri+no+crime+edge.png', 'Corte de cabelo', '5.50');
+INSERT INTO `fage`.`servico` (`descricao`, `duracao`, `foto`, `nome`, `preco`) VALUES
+                                                    ('Corte de cabelo', '15', 'https://4.bp.blogspot.com/-xUeToq0zYGg/UhaaoVmqw4I/AAAAAAAAAcA/oX2lorw7vSU/s1600/dansai+bunri+no+crime+edge.png', 'Corte de cabelo', '40'),
+                                                    ('Corte de unhas', '15', '', 'Corte de unhas', '30'),
+                                                    ('Barba', '15', '', 'Fazer a Barba', '30'),
+                                                    ('Cílios', '15', '', 'Arrumar os Cilios', '15');
 
-INSERT INTO `fage`.`funcionario` (`pessoa_id`, `servico_id`) VALUES ('1', '1');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('2', '2023-10-03', b'1', b'1');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('3', '2023-10-03', b'1', b'1');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('4', '2023-10-03', b'1', '2');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('5', '2023-10-03', b'1', '2');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('6', '2023-10-03', b'1', '2');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('7', '2023-10-03', b'1', '3');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('8', '2023-10-03', b'1', '3');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('9', '2023-10-03', b'1', '3');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('10', '2023-10-03', b'1', '4');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('11', '2023-10-03', b'1', '4');
+INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('12', '2023-10-03', b'1', '4');
+
+
+
+INSERT INTO `fage`.`funcionario` (`pessoa_id`, `empresa_id`, `servico_id`) VALUES ('1', '1', '1');
 
 
 -- insere todos os estados do Brasil

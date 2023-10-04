@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -34,5 +35,5 @@ public class Empresa {
     private boolean aberta;
 
     @OneToMany(mappedBy = "empresa")
-    private List<Funcionario> funcionarios;
+    private Set<Funcionario> funcionarios;
 }

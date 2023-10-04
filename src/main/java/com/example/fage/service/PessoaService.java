@@ -97,7 +97,7 @@ public class PessoaService {
     public boolean buscarPorEmail(String email) {
 
         Optional<Pessoa> pessoa = pessoaRepository.findByEmailContainingIgnoreCase(email);
-        return pessoa.isEmpty();
+        return pessoa.isPresent();
     }
 
     public boolean buscarPorDocumento(String documento) {

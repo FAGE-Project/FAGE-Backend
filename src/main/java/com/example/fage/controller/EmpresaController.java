@@ -4,9 +4,11 @@ import com.example.fage.dto.EmpresaListagemDto;
 // import com.example.fage.dto.LoginDto;
 import com.example.fage.entity.Empresa;
 import com.example.fage.dto.EmpresaDto;
+import com.example.fage.entity.Funcionario;
 import com.example.fage.service.EmpresaService;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -65,8 +67,5 @@ public class EmpresaController {
         EmpresaDto empresa = empresaService.buscarPorId(id);
         return ResponseEntity.status(HttpStatus.OK).body(empresa);
     }
-
-
-
 
 }

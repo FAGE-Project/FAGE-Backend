@@ -29,6 +29,8 @@ public class Configurations {
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/funcionario").permitAll()
                         .requestMatchers("/funcionario/*").permitAll()
+                        .requestMatchers("/horario/").permitAll()
+                        .requestMatchers("/horario/*").permitAll()
                         .requestMatchers("/").permitAll()
                         .anyRequest().authenticated());
 

@@ -14,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class FuncionarioService {
@@ -24,20 +25,20 @@ public class FuncionarioService {
     @Autowired
     EmpresaRepository empresaRepository;
 
-    public List<FuncionarioListagemDto> buscarTodosPorEmpresa(Long id) {
+    public List<Funcionario> buscarTodosPorEmpresa(Long id) {
 
-        Optional<Empresa> empresa = empresaRepository.findById(id);
+        List<Funcionario> funcionarios = funcionarioRepository.findAllByEmpresa_Id(id);
 
-        if(empresa.isEmpty())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Empresa não encontrada");
+        if(funcionarios.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Funcionarios não encontrados");
 
-        List<Funcionario> funcionarios = empresa.get().getFuncionarios();
 
-        List<FuncionarioListagemDto> funcionariosDto = new ArrayList<>();
+//        List<FuncionarioListagemDto> funcionariosDto = new ArrayList<>();
+//
+//        BeanUtils.copyProperties(funcionarios, funcionariosDto);
 
-        BeanUtils.copyProperties(funcionarios, funcionariosDto);
-
-        return funcionariosDto;
+        return funcionarios;
 
     }
+
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class PessoaDto {
+    private Long id;
     private String nome;
     private String documento;
     private String email;

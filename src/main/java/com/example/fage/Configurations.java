@@ -30,7 +30,10 @@ public class Configurations {
                         .requestMatchers("/funcionario").permitAll()
                         .requestMatchers("/funcionario/*").permitAll()
                         .requestMatchers("/horario/").permitAll()
-                        .requestMatchers("/horario/*").permitAll()
+                        .requestMatchers("/agendamentos/*").permitAll()
+                        .requestMatchers("/agendamentos").permitAll()
+                        .requestMatchers("/servicos").permitAll()
+                        .requestMatchers("/servicos/*").permitAll()
                         .requestMatchers("/").permitAll()
                         .anyRequest().authenticated());
 

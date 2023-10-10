@@ -29,4 +29,9 @@ public class Servico {
     private double duracao;
     @OneToMany(mappedBy="servico")
     private Set<Horario> horarios;
+    @OneToMany(mappedBy="servico")
+    private Set<Agendamento> agendamentos;
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
 }

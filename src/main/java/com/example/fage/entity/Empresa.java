@@ -36,4 +36,6 @@ public class Empresa {
 
     @OneToMany(mappedBy = "empresa")
     private Set<Funcionario> funcionarios;
+    @OneToMany(mappedBy="empresa")
+    private Set<Servico> servicos;
 }

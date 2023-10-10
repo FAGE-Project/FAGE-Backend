@@ -2,19 +2,20 @@
 INSERT INTO `pessoa` (`id`, `documento`, `email`, `nome`, `password`) VALUES
                                                      (1, '958.200.690-05', 'tilapia@gmail.com', 'Tilapia da Silva', '$2a$12$R9tui8cxiIzxqZtiz9ieh.PcoqpiPxpVL4bhM65iur5q2Fnd9dEHC');
 
-INSERT INTO `empresa` (`aberta`, `descricao`, `nome`, `nota`) VALUES
-                                                    (1, 'empresa', 'fage', 5),
-                                                    (0, 'não é uma empresa', 'google', 1),
-                                                    (1, 'é uma empresa', 'foogle', 3);
+INSERT INTO `fage`.`empresa` (`id`, `aberta`, `descricao`, `documento`, `foto`, `nome`, `nota`) VALUES (1, 1, 'Cabeleleiro studio maxhair', '44324343', 'https://www.zarla.com/images/zarla-studio-maxhair-1x1-2400x2400-20220210-97wd3kvyxkrgtyrwk3fr.png', 'Studio Maxhair', 4);
+INSERT INTO `fage`.`empresa` (`id`, `aberta`, `descricao`, `documento`, `foto`, `nome`, `nota`) VALUES (2, 1, 'Cabeleleiro studio maxhair', '44324343', 'https://www.zarla.com/images/zarla-studio-maxhair-1x1-2400x2400-20220210-97wd3kvyxkrgtyrwk3fr.png', 'Studio Maxhair', 3);
+INSERT INTO `fage`.`empresa` (`id`, `aberta`, `descricao`, `documento`, `foto`, `nome`, `nota`) VALUES (3, 1, 'Cabeleleiro studio maxhair', '44324343', 'https://www.zarla.com/images/zarla-studio-maxhair-1x1-2400x2400-20220210-97wd3kvyxkrgtyrwk3fr.png', 'Studio Maxhair', 5);
 
-
-INSERT INTO `fage`.`empresa` (`aberta`, `descricao`, `documento`, `foto`, `nome`, `nota`) VALUES ('1', 'ben 10 company', '44324343', 'https://i.pinimg.com/originals/80/8d/f0/808df0e1d0d32768a4a5fdf6b5e8f5ec.png', 'barbeiro 10', '5');
-
-INSERT INTO `fage`.`servico` (`descricao`, `duracao`, `foto`, `nome`, `preco`) VALUES
-                                                    ('Corte de cabelo', '15', 'https://4.bp.blogspot.com/-xUeToq0zYGg/UhaaoVmqw4I/AAAAAAAAAcA/oX2lorw7vSU/s1600/dansai+bunri+no+crime+edge.png', 'Corte de cabelo', '40'),
-                                                    ('Corte de unhas', '15', '', 'Corte de unhas', '30'),
-                                                    ('Barba', '15', '', 'Fazer a Barba', '30'),
-                                                    ('Cílios', '15', '', 'Arrumar os Cilios', '15');
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (1, 'Corte de cabelo', 15, 'https://4.bp.blogspot.com/-xUeToq0zYGg/UhaaoVmqw4I/AAAAAAAAAcA/oX2lorw7vSU/s1600/dansai+bunri+no+crime+edge.png', 'Corte de cabelo', 40, 1);
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (2, 'Corte de unhas', 15, 'https://4.bp.blogspot.com/-xUeToq0zYGg/UhaaoVmqw4I/AAAAAAAAAcA/oX2lorw7vSU/s1600/dansai+bunri+no+crime+edge.png', 'Corte de unhas', 30, 1);
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (3, 'Cílios', 15, 'https://4.bp.blogspot.com/-xUeToq0zYGg/UhaaoVmqw4I/AAAAAAAAAcA/oX2lorw7vSU/s1600/dansai+bunri+no+crime+edge.png', 'Arrumar os Cilios', 15, 1);
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (4, 'Corte de cabelo', 15, 'https://3.bp.blogspot.com/-T__-D8d2mbk/UXMcS9tUFtI/AAAAAAAAAgQ/vn8Z6X33PNo/s1600/Dansai+Bunri+no+Crime+Edge+-+03+-+Large+14.jpg', 'Corte de cabelo', 40, 2);
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (5, 'Cílios', 15, 'https://3.bp.blogspot.com/-T__-D8d2mbk/UXMcS9tUFtI/AAAAAAAAAgQ/vn8Z6X33PNo/s1600/Dansai+Bunri+no+Crime+Edge+-+03+-+Large+14.jpg', 'Arrumar os Cilios', 15, 2);
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (6, 'Corte de cabelo', 15, 'https://3.bp.blogspot.com/-T__-D8d2mbk/UXMcS9tUFtI/AAAAAAAAAgQ/vn8Z6X33PNo/s1600/Dansai+Bunri+no+Crime+Edge+-+03+-+Large+14.jpg', 'Corte de cabelo', 15, 3);
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (7, 'Corte de unhas', 15, 'https://4.bp.blogspot.com/-xUeToq0zYGg/UhaaoVmqw4I/AAAAAAAAAcA/oX2lorw7vSU/s1600/dansai+bunri+no+crime+edge.png', 'Corte de unhas', 15, 3);
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (8, 'Arrumar os cílios para ficar bonita naquela noite', 15, 'https://4.bp.blogspot.com/-xUeToq0zYGg/UhaaoVmqw4I/AAAAAAAAAcA/oX2lorw7vSU/s1600/dansai+bunri+no+crime+edge.png', 'Arrumar os Cilios', 15, 3);
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (9, 'Fazer barba para deixar ela estilosa', 15, 'https://3.bp.blogspot.com/-T__-D8d2mbk/UXMcS9tUFtI/AAAAAAAAAgQ/vn8Z6X33PNo/s1600/Dansai+Bunri+no+Crime+Edge+-+03+-+Large+14.jpg', 'Barba', 15, 3);
+INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (10, 'Manicure para ficar perfeita', 15, 'https://3.bp.blogspot.com/-T__-D8d2mbk/UXMcS9tUFtI/AAAAAAAAAgQ/vn8Z6X33PNo/s1600/Dansai+Bunri+no+Crime+Edge+-+03+-+Large+14.jpg', 'Manicure', 15, 3);
 
 INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('2', '2023-10-03', b'1', b'1');
 INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('3', '2023-10-03', b'1', b'1');
@@ -27,7 +28,6 @@ INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('9',
 INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('10', '2023-10-03', b'1', '4');
 INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('11', '2023-10-03', b'1', '4');
 INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('12', '2023-10-03', b'1', '4');
-
 
 
 INSERT INTO `fage`.`funcionario` (`pessoa_id`, `empresa_id`, `servico_id`) VALUES ('1', '1', '1');

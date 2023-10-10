@@ -7,14 +7,18 @@ import com.example.fage.dto.PessoaDto;
 import com.example.fage.entity.Pessoa;
 import com.example.fage.repository.PessoaRepository;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class PessoaService {
@@ -24,15 +28,14 @@ public class PessoaService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    Pessoa pessoa = new Pessoa();
-
     public PessoaDto cadastrar(PessoaDto pessoaDto) throws Exception{
+        Pessoa pessoa = new Pessoa();
 
         criptografarSenha(pessoaDto.getPassword(), pessoaDto);
 
         validarPessoa(pessoaDto);
 
-        BeanUtils.copyProperties(pessoaDto, pessoa);
+        BeanUtils.copyProperties(pessoaDto, pessoa, getNullPropertyNames(pessoaDto));
 
         pessoaRepository.save(pessoa);
 
@@ -132,5 +135,19 @@ public class PessoaService {
         } catch (ResponseStatusException e) {
             throw new ResponseStatusException(e.getStatusCode(), e.getReason());
         }
+    }
+
+    public static String[] getNullPropertyNames (Object source) {
+        final BeanWrapper src = new BeanWrapperImpl(source);
+        java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
+
+        Set<String> emptyNames = new HashSet<String>();
+        for(java.beans.PropertyDescriptor pd : pds) {
+            Object srcValue = src.getPropertyValue(pd.getName());
+            if (srcValue == null) emptyNames.add(pd.getName());
+        }
+
+        String[] result = new String[emptyNames.size()];
+        return emptyNames.toArray(result);
     }
 }

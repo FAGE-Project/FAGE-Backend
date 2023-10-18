@@ -1,36 +1,36 @@
 package com.example.fage.entity;
 
-import java.util.Date;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Time;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Horario {
+public class Agenda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(nullable = false)
+
     private Date data;
 
-    @Column(nullable = false)
-    private int fracionamento;
+    private Time hora_inicio;
 
-    @Column(nullable = false)
-    private boolean status;
+    private Time hora_fim;
 
-    @ManyToOne
-    @JoinColumn(name = "pessoa_id")
+    @OneToOne()
     private Pessoa pessoa;
-    
-    @ManyToOne
-    @JoinColumn(name = "agenda_id")
-    private Agenda agenda;
+
+    @OneToMany(mappedBy="agenda")
+    private Set<Horario> horarios;
+
 
 }

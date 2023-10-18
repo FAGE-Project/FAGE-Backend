@@ -19,8 +19,9 @@ public class HorarioService {
     HorarioRepository repository;
 
     public List<HorarioDto> buscarHorariosPorServico(Long id) {
+        List<HorarioDto> listaHorarioDtos = new ArrayList<>();
 
-        List<Horario> horarios = repository.findAllByServico_Id(id);
+        /*List<Horario> horarios = repository.findAllByServico_Id(id);
 
         if(horarios.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Horários não encontrados");
@@ -34,7 +35,7 @@ public class HorarioService {
         }
 
         BeanUtils.copyProperties(horarios, listaHorarioDtos);
-
+*/
         return listaHorarioDtos;
 
     }

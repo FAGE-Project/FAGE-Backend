@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Time;
 import java.util.Date;
 
 @Entity
@@ -18,6 +19,10 @@ public class Agendamento {
     private long id;
 
     private Date data;
+
+    private Time hora_inicio;
+
+    private Time hora_fim;
 
     @OneToOne()
     private Pessoa pessoa;

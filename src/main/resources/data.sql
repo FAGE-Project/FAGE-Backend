@@ -17,19 +17,6 @@ INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `pre
 INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (9, 'Fazer barba para deixar ela estilosa', 15, 'https://3.bp.blogspot.com/-T__-D8d2mbk/UXMcS9tUFtI/AAAAAAAAAgQ/vn8Z6X33PNo/s1600/Dansai+Bunri+no+Crime+Edge+-+03+-+Large+14.jpg', 'Barba', 15, 3);
 INSERT INTO `fage`.`servico` (`id`, `descricao`, `duracao`, `foto`, `nome`, `preco`, `empresa_id`) VALUES (10, 'Manicure para ficar perfeita', 15, 'https://3.bp.blogspot.com/-T__-D8d2mbk/UXMcS9tUFtI/AAAAAAAAAgQ/vn8Z6X33PNo/s1600/Dansai+Bunri+no+Crime+Edge+-+03+-+Large+14.jpg', 'Manicure', 15, 3);
 
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('2', '2023-10-03', b'1', b'1');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('3', '2023-10-03', b'1', b'1');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('4', '2023-10-03', b'1', '2');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('5', '2023-10-03', b'1', '2');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('6', '2023-10-03', b'1', '2');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('7', '2023-10-03', b'1', '3');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('8', '2023-10-03', b'1', '3');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('9', '2023-10-03', b'1', '3');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('10', '2023-10-03', b'1', '4');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('11', '2023-10-03', b'1', '4');
-INSERT INTO `fage`.`horario` (`id`, `data`, `status`, `servico_id`) VALUES ('12', '2023-10-03', b'1', '4');
-
-
 INSERT INTO `fage`.`funcionario` (`pessoa_id`, `empresa_id`, `servico_id`) VALUES ('1', '1', '1');
 
 

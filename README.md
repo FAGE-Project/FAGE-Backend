@@ -1,20 +1,27 @@
-# 📝Fage
+## 📝Fage
 
-Software Para agendamento rápido e fácil de serviços.
+Software Ágil para agendamento de serviços. O Fage é uma iniciativa da disciplina de **Projeto Integrador I**, 2° ano   
+do curso de Engenharia de Software da Instituição IFPR - Paranavaí, onde está sendo colocado em prática todas   
+as idéias que foram desenvolvidas anteriormente para a disciplina atual de **Projeto Integrador II**.   
 
+Com isso, todo planejamento que foi feito ano passado, está sendo desenvolvido atualmente, com possíveis   
+incrementações e atualizações de modelagem para melhor aparência dentro dos padrões da atualidade.
 
 ## 📃Descrição📃
 
-Projeto onde será desenvolvida a ideia trabalhada no **Projeto Integrador I** 
+O que é o FAGE? É um software onde podemos efetuar o agendamento de serviços, procurando maior agilidade e facilitar   
+o cliente/usuário, onde muitas vezes desistem de utilizar plataformas online pela complicação de preencher muitos   
+campos de cadastro e métodos muito complexos de usabilidade. Neste software, o objetivo é a agilidade e descomplicar   
+você USUÁRIO ou CLIENTE em todos os procedimentos e funcionalidades que a aplicação possui.
 
 ## 👨‍💻Squad💻
 
-```Allan Fernando Oliveira de Andrade``` <a style="color:green">  **Desenvolvedor** </a>  
+```Allan Fernando Oliveira de Andrade``` <a style="color:green">  **Product Owner** </a>  
+```Gabriel da Silva de Oliveira``` <a style="color:green">  **Scrum Master** </a>   
 ```Carlos Eduardo Mariano Garcia Pereira```  <a style="color:green">  **Desenvolvedor** </a>  
-```Gabriel da Silva de Oliveira``` <a style="color:green">  **Desenvolvedor** </a>   
 ```Helon Bentes Bastos Xavier``` <a style="color:green">  **Desenvolvedor** </a>  
-```Leonardo Sarto da Silva```  <a style="color:blue">  **Scrum Master** </a>    
-```Vicente Yoneyama Júnior``` <a style="color:purple">  **Product Owner** </a>
+```Leonardo Sarto da Silva```  <a style="color:blue">  **Desenvolvedor** </a>   
+```Vicente Yoneyama Júnior``` <a style="color:purple">  **Desenvolvedor** </a>
 
 
 
@@ -22,13 +29,21 @@ Projeto onde será desenvolvida a ideia trabalhada no **Projeto Integrador I**
 
 # Backend
 
-<img  src="https://d1.awsstatic.com/logos/partners/MariaDB_Logo.d8a208f0a889a8f0f0551b8391a065ea79c54f3a.png" width="150px">
+<img  src="https://urbantution.com/content_image/blog/7a727005-e70f-4ab3-b4fa-c76c5bde0213.jpg" width="150px">
 
-* MariaDB 🐬
+* MySQL 🐬
 
-> Surgiu como um fork(cópia) do MySQL.
-> SGBD gratuíto onde serão armazenados os dados da solução
-> Maior rapidez, escalabilidade e robustez.
+> Fácil de usar.
+> 
+> Proporciona vários recursos relacionados com base de dados.
+> 
+> Bons recursos de segurança.
+> 
+> Facilmente escalável e adequada para grandes bases de dados.
+> 
+> Proporciona boa velocidade e desempenho.
+> 
+> Traz bom gerenciamento de usuários e acesso a múltiplos controles.
 
  
 

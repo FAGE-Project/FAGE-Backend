@@ -1,5 +1,6 @@
 package com.example.fage.entity;
 
+import java.sql.Time;
 import java.util.Date;
 
 import jakarta.persistence.*;
@@ -19,15 +20,13 @@ public class Horario {
     @Column(nullable = false)
     private Date data;
 
-    @Column(nullable = false)
-    private int fracionamento;
+    private Time hora_inicio;
+
+    private Time hora_fim;
+
 
     @Column(nullable = false)
     private boolean status;
-
-    @ManyToOne
-    @JoinColumn(name = "pessoa_id")
-    private Pessoa pessoa;
     
     @ManyToOne
     @JoinColumn(name = "agenda_id")

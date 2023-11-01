@@ -29,6 +29,9 @@ public class Agenda {
     @OneToOne()
     private Pessoa pessoa;
 
+    @Column(nullable = false)
+    private int fracionamento;
+
     @OneToMany(mappedBy="agenda")
     private Set<Horario> horarios;
 

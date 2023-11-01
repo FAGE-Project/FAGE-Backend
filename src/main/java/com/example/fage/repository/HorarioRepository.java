@@ -1,4 +1,4 @@
-package com.example.fage.service;
+package com.example.fage.repository;
 
 import com.example.fage.entity.Horario;
 import org.springframework.data.jpa.repository.JpaRepository;

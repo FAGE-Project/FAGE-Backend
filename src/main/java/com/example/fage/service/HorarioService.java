@@ -1,13 +1,9 @@
 package com.example.fage.service;
 
 import com.example.fage.dto.HorarioDto;
-import com.example.fage.entity.Horario;
-import org.springframework.beans.BeanUtils;
+import com.example.fage.repository.HorarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
